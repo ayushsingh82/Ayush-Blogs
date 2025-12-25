@@ -18,7 +18,7 @@ export default function Home() {
       </p>
 
       {/* Sidebar/Profile Section */}
-      <aside className="w-full max-w-md border border-white/10 rounded-lg bg-black/50 backdrop-blur-sm p-6">
+      <aside className="w-full max-w-md border border-white/10 rounded-lg bg-black/20 backdrop-blur-[2px] p-6 relative z-20">
         <div className="sidebar-info">
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
             <div className="avatar-box">
