@@ -20,8 +20,8 @@ export interface SpotlightNavbarProps {
 export function SpotlightNavbar({
   items = [
     { label: "ERC's", href: "/erc" },
-    { label: "Web3", href: "#web3" },
-    { label: "AI", href: "/ai" },
+    { label: "Web3", href: "/web3" },
+    { label: "Tutorial", href: "/" },
   ],
   className,
   onItemClick,
