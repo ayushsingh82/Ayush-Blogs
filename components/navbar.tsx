@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { animate } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export interface NavItem {
@@ -18,7 +19,7 @@ export interface SpotlightNavbarProps {
 
 export function SpotlightNavbar({
   items = [
-    { label: "ERC's", href: "#ercs" },
+    { label: "ERC's", href: "/erc" },
     { label: "Web3", href: "#web3" },
     { label: "AI", href: "#ai" },
   ],
@@ -26,6 +27,7 @@ export function SpotlightNavbar({
   onItemClick,
   defaultActiveIndex = 0,
 }: SpotlightNavbarProps) {
+  const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const [hoverX, setHoverX] = useState<number | null>(null);
@@ -103,6 +105,10 @@ export function SpotlightNavbar({
   const handleItemClick = (item: NavItem, index: number) => {
     setActiveIndex(index);
     onItemClick?.(item, index);
+    // Navigate if it's a route (starts with /)
+    if (item.href.startsWith('/')) {
+      router.push(item.href);
+    }
   };
 
   return (
@@ -111,18 +117,19 @@ export function SpotlightNavbar({
         ref={navRef}
         className={cn(
           "spotlight-nav spotlight-nav-bg glass-border spotlight-nav-shadow",
-          "relative h-14 w-full max-w-6xl rounded-full transition-all duration-300 overflow-hidden",
-          "flex items-center justify-between px-6"
+          "relative h-14 w-full max-w-3xl rounded-full transition-all duration-300 overflow-hidden",
+          "flex items-center justify-between px-6 bg-black"
         )}
+        style={{ backgroundColor: '#000000' }}
       >
         {/* Website Name on Left */}
         <div className="flex items-center">
           <a
-            href="#"
-            className="text-lg font-semibold text-black dark:text-white hover:opacity-80 transition-opacity"
+            href="/"
+            className="text-lg font-semibold text-white hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              router.push('/');
             }}
           >
             Ayush's Blog
@@ -145,8 +152,8 @@ export function SpotlightNavbar({
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 dark:focus-visible:ring-white/30",
                   // Active vs Inactive Text
                   activeIndex === idx
-                    ? "text-black dark:text-white"
-                    : "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                    ? "text-white"
+                    : "text-neutral-400 hover:text-white"
                 )}
               >
                 {item.label}
