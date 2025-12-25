@@ -97,61 +97,7 @@ nav.spotlight-nav-bg,
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
-/* Stacked Logos Animations */
-.stacked-logos {
-  --duration: 30s;
-  --items: 4;
-  --lists: 4;
-  --stagger: 2s;
-}
 
-.stacked-logos:hover .stacked-logos__glow,
-.stacked-logos:hover .stacked-logos__border-glow {
-  opacity: 1 !important;
-}
-
-.stacked-logos__item {
-  animation: stacked-logos-fade calc(var(--duration) * 1s) infinite;
-  animation-delay: calc((var(--i) * var(--stagger, 0s)) + (var(--index, 0) * var(--stagger, 0s)));
-  opacity: 0;
-}
-
-@keyframes stacked-logos-fade {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  5%, 20% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  25%, 95% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-/* Stacked Text Animations */
-.stacked-text__item {
-  animation: stacked-text-fade calc(var(--duration) * 1s) infinite;
-  animation-delay: calc((var(--i) * (var(--duration) * 1s / var(--items))) + var(--stagger, 0s));
-  opacity: 0;
-}
-
-@keyframes stacked-text-fade {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  8%, 12% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  15%, 95% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
 
 /* GlowBorderCard Animation Utilities */
 @property --glow-angle {
@@ -333,4 +279,11 @@ nav.spotlight-nav-bg,
 body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Ensure ColorBends canvas is visible */
+canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
 }

@@ -59,7 +59,7 @@ export const GlowBorderCard = React.forwardRef<HTMLDivElement, GlowBorderCardPro
       ref={ref}
       className={cn(
         "relative overflow-hidden grid place-content-center isolate",
-        "bg-black/50 backdrop-blur-md",
+        className?.includes("bg-transparent") ? "" : "bg-black/50 backdrop-blur-md",
         className
       )}
       style={{

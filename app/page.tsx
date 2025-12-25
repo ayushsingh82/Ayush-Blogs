@@ -3,14 +3,18 @@
 import { useState } from "react";
 import { Mail, Send, MapPin, Github, Linkedin, Twitter, Plus, Minus, Globe } from "lucide-react";
 import Image from "next/image";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 export default function Home() {
   const [showContacts, setShowContacts] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 pt-20 sm:pt-24">
-      <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-2xl px-4 mb-12">
-        Learn from my Thoughts, tutorials, and experiments at the intersection of Web3, AI, and emerging ERC standards.
+    <BackgroundLines 
+      className="flex items-center justify-center w-full flex-col px-4 pt-4 sm:pt-6 min-h-screen"
+      svgOptions={{ duration: 5 }}
+    >
+      <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-2xl px-4 mb-6 relative z-20">
+        Learn from my blogs, tutorials, and experiments at the intersection of Web3, AI, and emerging ERC standards.
       </p>
 
       {/* Sidebar/Profile Section */}
@@ -108,7 +112,7 @@ export default function Home() {
           </div>
         )}
       </aside>
-    </div>
+    </BackgroundLines>
   );
 }
 
