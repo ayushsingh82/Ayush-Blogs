@@ -21,7 +21,7 @@ export function SpotlightNavbar({
   items = [
     { label: "ERC's", href: "/erc" },
     { label: "Web3", href: "#web3" },
-    { label: "AI", href: "#ai" },
+    { label: "AI", href: "/ai" },
   ],
   className,
   onItemClick,
@@ -112,13 +112,13 @@ export function SpotlightNavbar({
   };
 
   return (
-    <div className={cn("fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4", className)}>
+    <div className={cn("fixed top-0 left-0 right-0 z-50 flex justify-center pt-2 sm:pt-4 px-2 sm:px-4", className)}>
       <nav
         ref={navRef}
         className={cn(
           "spotlight-nav spotlight-nav-bg glass-border spotlight-nav-shadow",
-          "relative h-14 w-full max-w-3xl rounded-full transition-all duration-300 overflow-hidden",
-          "flex items-center justify-between px-6 bg-black"
+          "relative h-12 sm:h-14 w-full max-w-3xl rounded-full transition-all duration-300 overflow-hidden",
+          "flex items-center justify-between px-3 sm:px-6 bg-black"
         )}
         style={{ backgroundColor: '#000000' }}
       >
@@ -126,7 +126,7 @@ export function SpotlightNavbar({
         <div className="flex items-center">
           <a
             href="/"
-            className="text-lg font-semibold text-white hover:opacity-80 transition-opacity"
+            className="text-sm sm:text-lg font-semibold text-white hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               router.push('/');
@@ -148,7 +148,7 @@ export function SpotlightNavbar({
                   handleItemClick(item, idx);
                 }}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full",
+                  "px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-full",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 dark:focus-visible:ring-white/30",
                   // Active vs Inactive Text
                   activeIndex === idx
